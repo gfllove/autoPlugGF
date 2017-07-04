@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Auto Refresh</title>
+        <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <header>Auto Refresh <span class="light"> </span></header>
+        <div id="time">
+            <section>
+                <input type="number" value="5" min="0" id="seconds" step="1" pattern="\d+" />
+                <span class="label">毫秒</span>
+            </section>
+            <section>
+                <button id="start">开始</button>
+                <button id="stop">停止</button>
+                <span class="label"></span>
+            </section>
+        </div>
+        <footer>
+            <span id="defaultSuccess">✔</span>
+            <a href="#" id="default">Set Default</a>
+        </footer>
+       
+    </body>
+</html>

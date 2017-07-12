@@ -1,7 +1,6 @@
 /**
  * 
  */
-
 var j = 1;  //总执行次数
 var y = 0;  //成功匹配次数
 var n = 0;  //未匹配次数
@@ -11,71 +10,6 @@ var n = 0;  //未匹配次数
 setInterval(function(){
 	
 	var cur_url = document.URL;
-	
-	if(cur_url=="https://key.gf.com.cn/#/login"){
-   /* var input_all = document.getElementsByTagName("input");
-    for(var i = 0 ; i < input_all.length;i++){
-    	input_all[i].id="input_all"+i;
-    	//alert(input_all[i].id);
-    }
-    
-    //var reg1=new RegExp("<input(.*?)ng-model=\"login.username\"(.*?)>");
-    var id_reg="input_all\\d+";
-    var str =document.getElementsByTagName('html')[0].innerHTML; 
-    var login_reg="<input(\\s*?)type=\"text\"(\\s*?)placeholder=\"请输入OA账号\"(.*?)ng-model=\"login.username\"(.*?)>";
-    var login_input=str.match(login_reg).toString();
-    var login_id=login_input.match(id_reg);
-    //alert("login_id:"+login_id);
-    
-    var pwd_reg="<input(\\s*?)type=\"password\"(\\s*?)placeholder=\"请输入密码\"(.*?)ng-model=\"login.password\"(.*?)>";
-    var pwd_input=str.match(pwd_reg).toString();
-    var pwd_id=pwd_input.match(id_reg);
-    //alert("pwd_input:"+pwd_input);
-    //alert("pwd_id:"+pwd_id);
-    
-    var pwd_reg="<input(\\s*?)type=\"password\"(\\s*?)placeholder=\"请输入密码\"(.*?)ng-model=\"login.password\"(.*?)>";
-    var pwd_input=str.match(pwd_reg).toString();
-    var pwd_id=pwd_input.match(id_reg);
-    //pwd_input = pwd_input.replace(id_reg,"ng-value=\"Lcy123456\"");
-    alert("pwd_input:"+pwd_input);*/
-    
-   /* if(login_id!=null){
-    	
-    	login_id = document.getElementById(login_id);
-    	//login_id.focus();
-    	login_id.value = "";
-    	//3067002
-    	//alert(document.getElementById(input_id));
-    }*/
-  /*  if(pwd_id!=null){
-    	pwd_id = document.getElementById(pwd_id);
-    	//pwd_id.focus();
-    	pwd_id.value = "";
-    }*/
-    
-    
-    
-   // alert(document.getElementById('input_all0'));
-    //login_username
-    //login_username.focus();
-    //login_username.value = "3067002";
-    
-	
-	
-	
-	/*if(cur_url=="https://key.gf.com.cn/#/login"){
-		var button_all = document.getElementsByTagName("button");
-	    for(var i = 0 ; i < button_all.length;i++){
-	    	button_all[i].id="button_all"+i;
-	    	//alert(button_all[i].id);
-	    }
-	    
-	    button_id = document.getElementById("button_all0");
-	    button_id.focus();
-	    button_id.click();
-	}*/
-	
-	}
 	
 	if(cur_url=="https://key.gf.com.cn/#/main/order"){
 		
@@ -130,6 +64,4 @@ setInterval(function(){
 	    
 	}
     	
-    
-
 },3);

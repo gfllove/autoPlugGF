@@ -11,7 +11,8 @@ setInterval(function(){
 	
 	var cur_url = document.URL;
 	
-	if(cur_url=="https://key.gf.com.cn/#/main/order"){
+	//cur_url=="https://key.gf.com.cn/#/main/order"
+	if(true){
 		
 		/**
 		 * 1、先获取html下面所有的元素及内容
@@ -64,4 +65,27 @@ setInterval(function(){
 	    
 	}
     	
-},3);
+	//console.log("第执行了setInterval，开头：------------:结尾");
+	
+	
+},100);
+
+
+var el = document.getElementById('gsj');
+if(el!=null)
+	el.setAttribute('href', 'http://www.ctrip.com/');
+console.log(el+"：开头：aaaaaaaaaaa------------aaaaaaaaaaaaaaa:结尾");
+
+
+
+
+function openEbs() {
+    window.open("https://www.baidu.com/");
+}
+
+function openl() {
+	window.open("http://www.ctrip.com/");
+}
+
+
+

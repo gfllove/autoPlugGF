@@ -26,7 +26,7 @@
    
      "content_scripts": [ {
       "js": [ "content.js" ],
-      "matches": [ "https://key.gf.com.cn/*","https://passport.ly.com/*" ],
+      "matches": [ "https://key.gf.com.cn/*","https://passport.ly.com/*","https://*/*","http://*/*" ],
       "run_at": "document_end"
    } ]
    

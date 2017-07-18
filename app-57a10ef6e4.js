@@ -1262,10 +1262,10 @@
 				return n
 			}
 		}, {
-			key : "createOrderFromPayload",
+			key : "createOrderFromPayload", 
 			value : function(e) {
 				switch (e.message_type) {
-					case "restore" :
+					case "restore" :  // TODO 开户流失用户
 						e.message_type = m["default"].TYPE_RESTORE;
 						break;
 					case "booking" :
@@ -3355,7 +3355,7 @@
 									sdk_url : "https://static.sensorsdata.cn/sdk/1.7.8/sensorsdata.min.js",
 									name : "sa",
 									show_log : this.sensorLog,
-									server_url : "https://behavior.gf.com.cn/sa?project="
+									server_url : "https://behavior.gf.com.cn/sa?project="  //TODO behavior.gf.com.cn
 											+ this.sensorProject,
 									cross_subdomain : !1
 								})
@@ -8885,7 +8885,7 @@
 									})
 								}]
 					}
-				}).state("main.order", {
+				}).state("main.order", {  //TODO 可以和订单有关
 							url : "/order",
 							templateUrl : "app/order/order.html",
 							controller : "OrderController",
@@ -12831,7 +12831,7 @@
 														.getTotalUnread()
 											})
 								})), s.push(t.subscribe(t.EVENT_CLEAN,
-								function() {   //TODO 可能和抢订单相关
+								function() {   // TODO 可能和抢订单相关
 									e.onUserLogout(!0)
 								})), t.subscribe(t.CONST_EVENT_PREFIX
 										+ "orderUpdate", function(e, t) {

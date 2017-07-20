@@ -137,22 +137,25 @@ console.log(base64decode(decodeURIComponent(dedata4)));
 console.log(base64decode(decodeURIComponent(dedata5)));
 console.log(base64decode(decodeURIComponent(dedata6))); 
 
-var url = "https://behavior.gf.com.cn/sa.gif?project=goldenkey&data=eyJkaXN0aW5jdF9pZCI6IjE1Y2UzNjExNjcwNGY4LTBlOWM1ZDJmMDUyYjE3LTZhMTExNTdhLTEzMjcxMDQtMTVjZTM2MTE2NzE3OGQiLCJsaWIiOnsiJGxpYiI6ImpzIiwiJGxpYl9tZXRob2QiOiJjb2RlIiwiJGxpYl92ZXJzaW9uIjoiMS43LjgifSwicHJvcGVydGllcyI6eyIkc2NyZWVuX2hlaWdodCI6ODY0LCIkc2NyZWVuX3dpZHRoIjoxNTM2LCIkbGliIjoianMiLCIkbGliX3ZlcnNpb24iOiIxLjcuOCIsIiRsYXRlc3RfcmVmZXJyZXIiOiIiLCIkbGF0ZXN0X3JlZmVycmVyX2hvc3QiOiIiLCJHZkNsaWNrZWdnc19vcmlnaW4iOiJodHRwczovL2tleS5nZi5jb20uY24vIiwiR2ZDbGlja2VnZ3NfaGFzaCI6Ii9tYWluL29yZGVyIiwiR2ZDbGlja2VnZ3NfdGVybWluYWwiOiJtYW5hZ2VyX3dlYiIsIkdmQ2xpY2tlZ2dzX3NvY2tldEFkZHJlc3MiOiIiLCJHZkNsaWNrZWdnc19zdGF0dXNDb2RlIjoiMjAwIiwiR2ZDbGlja2VnZ3Nfc3RhdHVzVGV4dCI6Ik9LIiwiR2ZDbGlja2VnZ3NfdGltZURpZmYiOiIzOSIsIkdmQ2xpY2tlZ2dzX21ldGhvZCI6InB1c2hBY2siLCIkaXNfZmlyc3RfZGF5IjpmYWxzZX0sInR5cGUiOiJ0cmFjayIsImV2ZW50IjoiR2ZDbGlja2VnZ3NfU29ja2V0IiwiX25vY2FjaGUiOiIwMjc1MDE3NDQ4NDUxNDgifQ%3D%3D";
 
 
-if (url.indexOf("?") != -1) {
+console.log("========================================");
+//重写Date中的toLocaleString方法
+Date.prototype.toLocaleString = function() {
+    return this.getFullYear() + "-" + (this.getMonth() + 1) + "-" + this.getDate() + " " + this.getHours() + ":" + this.getMinutes() + ":" + this.getSeconds()+" "+this.getMilliseconds();
+};
+console.log(new Date(1500344279807).toLocaleString());
 	
-	var str = url.split("?")[1]; 
-	var strs = str.split("&"); 
-	for(var i = 0; i < strs.length; i ++) { 
-	console.log(strs[i].split("=")[0]+"---"+unescape(strs[i].split("=")[1]));
-	}
-	console.log(theRequest);
-}
+var time1 = new Date();
+console.log(time1);
+console.log(time1.getTime());
 
+var time2 = new Date();
+console.log(time2);
+console.log(time2.getTime());
 
+console.log(time2-time1);
 
-	
 
 </script>
 

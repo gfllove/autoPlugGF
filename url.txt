@@ -1,0 +1,111 @@
+7.20  
+https://conn1.gf.com.cn/socket.io/?EIO=3&transport=polling&t=LrTHy80
+      Set-Cookie:io=xhSCeKOwKFCXSbeQAAoT; Path=/; 
+      {"sid":"xhSCeKOwKFCXSbeQAAoT","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":60000}
+
+HttpOnlyhttps://key.gf.com.cn/im/api/ping           返回时间晚于现在
+https://key.gf.com.cn/external/auth/verify-mgr-token
+https://conn1.gf.com.cn/socket.io/?EIO=3&transport=polling&t=LrTHyFJ&sid=xhSCeKOwKFCXSbeQAAoT   40
+https://conn1.gf.com.cn/socket.io/?EIO=3&transport=polling&t=LrTHyGm&sid=xhSCeKOwKFCXSbeQAAoT   OK
+https://conn1.gf.com.cn/socket.io/?EIO=3&transport=polling&t=LrTHyIB&sid=xhSCeKOwKFCXSbeQAAoT   OK
+https://conn1.gf.com.cn/socket.io/?EIO=3&transport=polling&t=LrTHyJT&sid=xhSCeKOwKFCXSbeQAAoT
+              431[{"data":{"event":"success"},"requestTime":1500508570674}]
+
+
+https://conn1.gf.com.cn/socket.io/?EIO=3&transport=polling&t=LrTHyGo&sid=xhSCeKOwKFCXSbeQAAoT
+	?430[{data: {event: "success",…}, ver: 2, requestTime: 1500508570670}]
+0
+:
+{data: {event: "success",…}, ver: 2, requestTime: 1500508570670}
+data:{event: "success",…}
+event:"success"
+regInfo:{uid: "3067002", source: "manager_web", version: "1.2.60", isExpert: "0", disableRiskWarning: false,…}
+appId:"clickeggs.gf.com.cn"
+clientType:"jys"
+disableRiskWarning:false
+isExpert:"0"
+qualification:"consultant"
+regId:"b57ab2bde9fb633abb550eff9567ada7f50e3f9f"
+regName:"????? ?o?"
+role:"manager"
+source:"manager_web"
+uid:"3067002"
+version:"1.2.60"
+requestTime:1500508570670
+ver:2
+
+
+
+
+https://key.gf.com.cn/v2/user/jysMgrScore   大数据获取星级
+{status: "200", message: "从大数据获取经理星级处理成功",…}
+data:{orgcode: "1505", totalScore: "389", rank: null, is_new: true, rankDiff: null, datatime: "2017-07-19",…}
+datatime:"2017-07-19"
+firstlogin:false
+is_new:true
+levelDiff:"0"
+name:"李翠云"
+orgcode:"1505"
+orgname:"苏州苏州大道东营业部"
+rank:null
+rankDiff:null
+rankLevel:"三星级"
+scoreDiff:"5"
+totalScore:"389"
+uuid:"3067002"
+message:"从大数据获取经理星级处理成功"
+status:"200"
+
+
+
+
+
+
+
+
+
+
+
+https://key.gf.com.cn/root/getUser
+
+{status: "200", message: "获取用户信息处理成功",…}
+data:{_id: "592488da57b6eed0b5535c05", id: "3067002", uid: "3067002", name: "李翠云", avatar: null, zt: "0",…}
+askNotify:"off"
+avatar:null
+avgResponseTime:""
+bookingNotify:"on"
+branchId:"7013"
+branchName:"江苏分公司"
+callID:null
+callPhone:null
+cardId:"S0260117060132"
+czdh:"10"
+department:"1505"
+examBlackUser:false
+expertList:null
+id:"3067002"
+inService:true
+informationNotify:"on"
+isExpert:"0"
+login_status:"on_line"
+name:"李翠云"
+openaccountNotify:"on"
+optionNotify:"on"
+orderNum:""
+orgName:""
+phone:"18020280263"
+pnsId:"b57ab2bde9fb633abb550eff9567ada7f50e3f9f"
+positiveNum:""
+qualification:"none"
+recommendQuanlified:"true"
+restoreNotify:"on"
+sort:null
+tgzg:"0"
+uid:"3067002"
+user_type:null
+yglx:"10"
+yybId:"1505"
+yybName:"广发证券股份有限公司苏州苏州大道东证券营业部"
+zt:"0"
+_id:"592488da57b6eed0b5535c05"
+message:"获取用户信息处理成

@@ -1262,6 +1262,7 @@
 				return n
 			}
 		}, {
+
 			key : "createOrderFromPayload", 
 			value : function(e) {
 				switch (e.message_type) {

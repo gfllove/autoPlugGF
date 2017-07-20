@@ -2,7 +2,13 @@
 
 console.log("background执行---------------------------开始！！！！！！！！！！！！！");
 
-//拦截请求
+//计算2个请求之间的时间差用
+var timeA = new Date().getTime();
+var timeB;
+
+/*拦截所有request请求
+ * onBeforeSendHeaders，在TCP连接建立之后和HTTP数据发送之前被调用的事件
+ */
 chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 	
 	//从所有的request中删除User-Agent的header
@@ -14,44 +20,64 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 		}
 	}
 	
-	//得到类型为为image
-	if("image"==details.type){
-		
+	//拦截发往某域名的请求
+	/*if(details.url.indexOf("://pos.baidu.com/") != -1 || details.url.indexOf("://pic3.40017.cn/") != -1){
+  	 console.log("onBeforeSendHeaders-----------执行");
+   	 return {cancel: true};   //阻止请求
+   	 
+  	}*/
+  	
+	
+	 /* 监控socket.io的请求
+	 * "image"==details.type  判断类型
+	*/
+	if(true){
+		var soc_url_reg="conn1.gf.com.cn/socket.io";
+		var soc_reg_obj = new RegExp(soc_url_reg);
+		//soc_reg_obj.test(details.url)
+		if(soc_reg_obj.test(details.url)){
+			
+			timeB = new Date().getTime();
+			var timeBA = timeB-timeA;
+			var timeSA = details.timeStamp-timeA;
+			console.log("请求时间差timeB-timeA:"+timeBA+"; 请求时间差details.timeStamp-timeA:"+timeSA+"; timeA:"+timeA+"; timeB:"+timeB+"; details.timeStamp:"+details.timeStamp+"; details.url:"+details.url);
+			timeA = timeB; //将timeB的值赋给timeA
+			
+		}
+	}
+	
+	
+	 /* 拦截sa.gif请求并将加密参数解密输出
+	 * 得到类型为为image,将监控性能数据从64encode解码
+	 */
+	/*if("image"==details.type){
 		var url_reg="https://behavior.gf.com.cn/sa.gif";
 		var reg_obj = new RegExp(url_reg);
 		if(reg_obj.test(details.url)){
 			//console.log("details.url ="+details.url);
+			//解析请求的request参数
 			if (details.url.indexOf("?") != -1) {
 				var str = details.url.split("?")[1]; 
 				var strs = str.split("&"); 
 				for(var i = 0; i < strs.length; i ++) {
 					if("data"==strs[i].split("=")[0]){
 						//console.log(strs[i].split("=")[0]+"="+unescape(strs[i].split("=")[1]));
-						console.log(base64decode(decodeURIComponent(strs[i].split("=")[1])));
+						//console.log(base64decode(decodeURIComponent(strs[i].split("=")[1])));
 					}
-					
-				
-				
 				}
 			}
 
-			/*console.log("before type:"+details.type);
+			console.log("before type:"+details.type);
 			console.log("before url:"+details.url);
 			console.log("before tabId:"+details.tabId);
 			console.log("before method:"+details.method);
 			console.log("before parentFrameId:"+details.parentFrameId);
-			console.log("before frameId:"+details.frameId);
+			console.log("before frameId:"+details.frameId);  //0表示request是在main frame里发生的
 			console.log("before requestId:"+details.requestId);
 			console.log("before timeStamp:"+details.timeStamp);
-			console.log("before --------------------- end");*/
-			
-			
+			console.log("before --------------------- end");
 		}
-		
-	
-		
-	
-	}
+	}*/
 	
 	
 	
@@ -62,15 +88,58 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 	urls : [ "<all_urls>" ]
 }, ["blocking","requestHeaders"]);
 
+/*阻止所有发往pos.baidu.com的request
+ * onBeforeRequest比onBeforeSendHeaders先执行
+*/
+/*chrome.webRequest.onBeforeRequest.addListener(
+  function(details) {
+  	
+  	//拦截发往某域名的请求
+	if(details.url.indexOf("://pos.baidu.com/") != -1 || details.url.indexOf("://pic3.40017.cn/") != -1){
+  	 console.log("onBeforeRequest++++++++++开始执行");
+   	 //return {cancel: true};   //阻止请求
+   	 
+  	}
+  	
+  },
+  {urls: ["<all_urls>"]},["blocking"]);*/
 
-// 请求完毕，返回的相关数据，都在details中
-chrome.webRequest.onCompleted.addListener(function(details){
+
+// 请求完毕，返回的相关数据，都在details中 没验证
+/*chrome.webRequest.onCompleted.addListener(function(details){
 	
 	// 拿到数据后，可以通过chrome.extension.sendMessage({msg:"getNetworkResource", data:details});将数据通知popup.html
 	
-	
-},{urls: ["<all_urls>"]},["responseHeaders"]);
+},{urls: ["<all_urls>"]},["responseHeaders"]);*/
 
+/*
+ * 修改responseHeaders信息
+ */
+/*chrome.webRequest.onHeadersReceived.addListener(function(details) {
+	
+	details.responseHeaders.push({name:'Access-Control-Allow-Origin',value:"*_linden_test"});
+	
+	if("https://www.ly.com/"==details.url){
+		console.log("onHeadersReceived frameId:"+details.frameId);  
+		console.log("onHeadersReceived method:"+details.method);
+		console.log("onHeadersReceived parentFrameId:"+details.parentFrameId);
+		console.log("onHeadersReceived statusCode:"+details.statusCode);
+		console.log("onHeadersReceived statusLine:"+details.statusLine);
+		console.log("onHeadersReceived tabId:"+details.tabId);
+		console.log("onHeadersReceived timeStamp:"+details.timeStamp);
+		console.log("onHeadersReceived type:"+details.type);
+		console.log("onHeadersReceived url:"+details.url);
+		console.log(details.responseHeaders)
+		console.log("onHeadersReceived --------------------- end")
+	}
+			
+			
+	return {responseHeaders:details.responseHeaders};
+  
+  },{urls: ["<all_urls>"]}, ["responseHeaders","blocking"]);*/
+  
+ 
+  
 
 //修改header头信息
 function modifyHeader(_headers, _url){
@@ -258,21 +327,3 @@ utf8Encode = function(e) {
 
 
 
-
-
-chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
-	
-	//从所有的request中删除User-Agent的header
-	for (var i = 0; i < details.requestHeaders.length; ++i) {
-		if (details.requestHeaders[i].name === 'User-Agent') {
-			details.requestHeaders.splice(i, 1,'linden_test');
-			break;
-		}
-	}
-	console.log("background8888888888888888");
-	return {
-		requestHeaders : details.requestHeaders
-	};
-}, {
-	urls : [ "<all_urls>" ]
-}, ["blocking","requestHeaders"]);

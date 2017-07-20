@@ -12,7 +12,7 @@ setInterval(function(){
 	var cur_url = document.URL;
 	
 	//cur_url=="https://key.gf.com.cn/#/main/order"
-	if(true){
+	if(cur_url=="https://key.gf.com.cn/#/main/order"){
 		
 		/**
 		 * 1、先获取html下面所有的元素及内容
@@ -79,13 +79,9 @@ console.log(el+"：开头：aaaaaaaaaaa------------aaaaaaaaaaaaaaa:结尾");
 
 
 
-function openEbs() {
-    window.open("https://www.baidu.com/");
-}
 
-function openl() {
-	window.open("http://www.ctrip.com/");
-}
+
+
 
 
 

@@ -44,7 +44,7 @@ setInterval(function(){
     	login_id = document.getElementById(login_id);
     	//login_id.focus();
     	login_id.value = "";
-    	//3067002
+    	//
     	//alert(document.getElementById(input_id));
     }*/
   /*  if(pwd_id!=null){

@@ -58,7 +58,7 @@ setInterval(function(){
    // alert(document.getElementById('input_all0'));
     //login_username
     //login_username.focus();
-    //login_username.value = "3067002";
+    //login_username.value = "abc";
     
 	
 	
